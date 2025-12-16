@@ -7,20 +7,20 @@ public class GroceryListManager {
     static int numberOfItemsInList = 0;
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scnr = new Scanner(System.in);
         boolean running = true;
 
         System.out.println("Welcome to Grocery List Management!");
 
         while (running) {
             displayMenu();
-            int choice = sc.nextInt();
+            int choice = scnr.nextInt();
             sc.nextLine(); // consume newline
 
             switch (choice) {
-                case 1: addItem(sc); break;
-                case 2: removeItem(sc); break;
-                case 3: checkOffItem(sc); break;
+                case 1: addItem(scnr); break;
+                case 2: removeItem(scnr); break;
+                case 3: checkOffItem(scnr); break;
                 case 4: printListExampleStyle(); break;
                 case 5:
                     printListExampleStyle();
@@ -32,7 +32,7 @@ public class GroceryListManager {
             }
         }
 
-        sc.close();
+        scnr.close();
     }
 
     // This method is used to display menu
@@ -46,9 +46,9 @@ public class GroceryListManager {
     }
 
     // This method is used to add an item
-    public static void addItem(Scanner sc) {
+    public static void addItem(Scanner scnr) {
         System.out.print("Enter item to add: ");
-        String newItem = sc.nextLine().trim();
+        String newItem = scnr.nextLine().trim();
 
         if (findItem(newItem) != -1) {
             System.out.println("That item already exists!");
@@ -64,9 +64,9 @@ public class GroceryListManager {
     }
 
     // This method is used to remove an item
-    public static void removeItem(Scanner sc) {
+    public static void removeItem(Scanner scnr) {
         System.out.print("Enter item name or number to remove: ");
-        String input = sc.nextLine().trim();
+        String input = scnr.nextLine().trim();
         int index = -1;
 
         if (input.matches("\\d++")) {
@@ -94,9 +94,9 @@ public class GroceryListManager {
     }
 
     // This method is to checkOff an item
-    public static void checkOffItem(Scanner sc) {
+    public static void checkOffItem(Scanner scnr) {
         System.out.print("Enter item name or number to check off: ");
-        String input = sc.nextLine().trim();
+        String input = scnr.nextLine().trim();
         int index = -1;
 
         if (input.matches("\\d++")) {
@@ -152,3 +152,4 @@ public class GroceryListManager {
         return -1;
     }
 }
+
