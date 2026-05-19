@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Locomotive Gallery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>Locomotive Photo Gallery</h1>
+
+    <div class="gallery">
+        {% for loco in locomotives %}
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/' + loco.image) }}" alt="{{ loco.name }}">
+            <h2>{{ loco.name }}</h2>
+            <p>{{ loco.horsepower }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
